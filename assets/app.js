@@ -1,9 +1,11 @@
 // get id from elements
 const row = document.getElementById("row")
-
+const speener = document.getElementById("speener")
+speener.style.display = "none"
 
 
 const productCategorys = async () => {
+    speener.style.display = "block"
     const url = 'https://www.themealdb.com/api/json/v1/1/categories.php'
     const res = await fetch(url)
     const data = await res.json()
@@ -27,6 +29,7 @@ const productCategorys = async () => {
         `
         row.appendChild(collum)
     }
+    speener.style.display = "none"
 
 
 }
@@ -40,6 +43,7 @@ const productCategory = async (categoryName) => {
     //     console.log("no data found");
     // }
     row.innerHTML = ""
+    speener.style.display = "block"
 
     row.innerHTML = `<h1 class="text-center my-3 text-capitalize">product from ${categoryName} categories</h1>`
 
@@ -72,6 +76,7 @@ const productCategory = async (categoryName) => {
         row.appendChild(collum)
 
     }
+    speener.style.display = "none"
 
 
 
@@ -85,12 +90,14 @@ const button = document.getElementById("button")
 
 
 input.addEventListener("keyup", async () => {
+    speener.style.display = "block"
     searchResult()
    
 })
 
 button.addEventListener("click", (e) => {
     e.preventDefault()
+    speener.style.display = "block"
     searchResult()
 })
 
@@ -133,7 +140,8 @@ const searchResult = async() => {
         `
         row.appendChild(collum)
 
-    }
+        }
+        speener.style.display = "none"
 
 }
     
